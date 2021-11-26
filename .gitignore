@@ -441,6 +441,6 @@ API/obj/Debug/net6.0/API.GeneratedMSBuildEditorConfig.editorconfig
 API/obj/Debug/net6.0/API.GlobalUsings.g.cs
 API/obj/Debug/net6.0/project.razor.json
 API/obj/Debug/net6.0/API.AssemblyInfo.cs
-API/socialapp.db
 API/socialapp.db-shm
 API/socialapp.db-wal
+

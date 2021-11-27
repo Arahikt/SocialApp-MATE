@@ -2,7 +2,6 @@ import { AccountService } from './../_services/account.service';
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -18,16 +17,16 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-register(){
-  this.accountService.register(this.model).subscribe(response => {
-  console.log(response);
-  this.cancel();
-  },error =>{
-    console.log(error);
+  register() {
+    this.accountService.register(this.model).subscribe(response => {
+      console.log(response);
+      this.cancel();
+    }, error => {
+      console.log(error);
     })
   }
-cancel() {
-  this.cancelRegister.emit(false);
-}
+  cancel() {
+    this.cancelRegister.emit(false);
+  }
 
 }

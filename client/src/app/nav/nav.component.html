@@ -3,7 +3,7 @@
 
     <a class="navbar-brand" routerLink='/'  routerLinkActive="active">Social App</a>
     <ul class="navbar-nav mr-auto">
-      <ng-container  *ngIf="accountService.currntUser$ | async">
+      <ng-container  *ngIf="accountService.currentUser$ | async">
           <li class="nav-item">
             <a class="nav-link" routerLink='/members' routerLinkActive="active">Matches</a>
           </li>
@@ -17,7 +17,7 @@
 <!-- . -->
     </ul>
 
-    <div class="dropdown" *ngIf="(accountService.currntUser$ | async) as user" dropdown>
+    <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
       <a class="dropdown-toggle text-light" dropdownToggle>Welcome {{user.username | titlecase}}</a>
       <div class="dropdown-menu mt-3"*dropdownMenu>
         <a class="dropdown-item">Edit Profile</a>
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <form *ngIf="(accountService.currntUser$| async) === null" #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" autocomplete="off">
+    <form *ngIf="(accountService.currentUser$| async) === null" #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" autocomplete="off">
       <input name="username" [(ngModel)]="model.username" class="form-control mr-sm-2" type="text"
         placeholder="Username">
       <input name="password"

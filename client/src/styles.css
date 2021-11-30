@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+  
+  .member-tabset > .nav-tabs > li.open > a, .member-tabset > .nav-tabs > li:hover > a {
+    border: 0;
+    background-color: none !important;
+    color: #333333;
+  }
+ 
+  
+  .member-tabset > .nav-tabs > li.open .dropdown-menu, .member-tabset > .nav-tabs > li:hover .dropdown-menu {
+    margin-top: 0px;
+  }
+  
+  .member-tabset > .nav-tabs > li.active {
+    border-bottom: 6px solid #E95420;
+    position: relative;
+  }
+
+  .member-tabset{
+    font: small;
+       background-color:#161616;
+     }   

@@ -1,3 +1,8 @@
  .dropdown-toggle, .dropdown-item {
     cursor: pointer;
 }
+img{
+   
+    border: 2px solid #fff;
+    display: inline;
+}

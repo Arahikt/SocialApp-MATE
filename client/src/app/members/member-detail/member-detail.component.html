@@ -14,7 +14,8 @@
                 </div>
                 <div>
                     <strong>Last Active:</strong>
-                    <p>{{member.lastActive }}</p>
+                    <p>{{member.lastActive | date: "mediumDate" }}</p>
+                    <!-- {{timeAgo()}} -->
                 </div>
                 <div>
                     <strong>Member since:</strong>
@@ -34,7 +35,7 @@
     <div class="col-8">
         <tabset class="member-tabset">
             <!-- <tab heading='About {{member.knownAs}}'> -->
-                <tab heading=' {{member.knownAs}}'s Biography >
+                <tab heading=' {{member.knownAs}}'s Profile >
                 <h4>Description</h4>
                 <p>{{member.introduction}}</p>
                 <h4>Looking for</h4>

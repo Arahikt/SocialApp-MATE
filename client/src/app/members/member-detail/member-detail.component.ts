@@ -51,5 +51,11 @@ export class MemberDetailComponent implements OnInit {
       this.galleryImages= this.getImage();
     })
   }
+  timeAgo(){
+    var eventStartTime = new Date(this.member.lastActive);
+    var eventEndTime =  Date.now();
+    var duration = eventEndTime.valueOf() - eventStartTime.valueOf();
+  return duration;
+  }
 
 }

@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <div *ngIf="!registerMode" style='text-align: center;'>
-    <h1>Find the love of your life here </h1>
+    <h1>Find Your Person, Friend, or LOVE  </h1>
     <p class="lead">Sign Up, Explore, and communicate in real time</p>
     <div class="text-center">
       <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Register</button>
@@ -9,7 +9,7 @@
   </div>
   <div *ngIf="registerMode" class="container">
     <div class="row justify-content-center">
-      <div class="col-4">
+      <div class="col-5">
         <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
       </div>
     </div>

@@ -1,0 +1,17 @@
+.card {
+    border: none;
+}
+
+.msg {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.msg-img{
+margin-right: 15px;
+}
+.msg li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #B3A9A9;
+}

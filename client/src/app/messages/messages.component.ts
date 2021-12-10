@@ -9,35 +9,37 @@ import { Pagination } from '../_models/pagination';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-messages: Message[] =[];
-pagination:Pagination;
-container='Unread';
-pageNumber =1;
-pageSize =10;
-// loading=false;
+  messages: Message[] = [];
+  pagination: Pagination;
+  container = 'Unread';
+  pageNumber = 1;
+  pageSize = 10;
+  loading = false;
+
   constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.loadMessages();
   }
-  loadMessages(){
-    this.messageService.getMessages(this.pageNumber, this.pageSize, this.container).subscribe(response =>{
-      this.messages= response.result;
+  loadMessages() {
+    this.loading = true;
+    this.messageService.getMessages(this.pageNumber, this.pageSize, this.container).subscribe(response => {
+      this.messages = response.result;
       this.pagination = response.pagination;
-
+      this.loading = false;
     })
   }
 
-  pageChanged(event: any){
-    if(this.pageNumber !== event.page){
-    this.pageNumber = event.page;
-    this.loadMessages();
+  pageChanged(event: any) {
+    if (this.pageNumber !== event.page) {
+      this.pageNumber = event.page;
+      this.loadMessages();
     }
   }
-  // deleteMessage(id: number) {
-  //   this.messageService.deleteMessage(id).subscribe(() => {
-  //     this.messages.splice(this.messages.findIndex(m => m.id === id), 1);
-  //   })
-  // }
+  deleteMessage(id: number) {
+    this.messageService.deleteMessage(id).subscribe(() => {
+      this.messages.splice(this.messages.findIndex(m => m.id === id), 1);
+    })
+  }
 
 }

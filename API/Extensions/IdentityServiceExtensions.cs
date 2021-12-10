@@ -17,9 +17,9 @@ namespace API.Extensions
         {
             services.AddIdentityCore<AppUser>(opt =>
             {
-                opt.Password.RequireNonAlphanumeric =false;
-                opt.Password.RequireUppercase=false;
-                
+                opt.Password.RequireNonAlphanumeric = false;
+                opt.Password.RequireUppercase = false;
+
             })
             .AddRoles<AppRole>()
             .AddRoleManager<RoleManager<AppRole>>()
@@ -37,6 +37,12 @@ namespace API.Extensions
                                 ValidateAudience = false,
                             };
                         });
+            services.AddAuthorization(opt =>
+            {
+                opt.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+                opt.AddPolicy("ModeratePhotoRole", policy =>policy.RequireRole("Admin", "Moderator"));
+            }
+            );
             return services;
         }
     }

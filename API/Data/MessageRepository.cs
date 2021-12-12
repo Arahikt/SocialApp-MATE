@@ -16,7 +16,7 @@ namespace API.DTOs
     {
         private readonly DataContext _context;
         private readonly IMapper _mapper;
-        public MessageRepository(DataContext context, IMapper mapper)
+        public MessageRepository( DataContext context, IMapper mapper)
         {
             _mapper = mapper;
             _context = context;
@@ -85,11 +85,6 @@ namespace API.DTOs
             }
 
             return _mapper.Map<IEnumerable<MessageDto>>(messages);
-        }
-
-        public async Task<bool> SaveAllAsync()
-        {
-            return await _context.SaveChangesAsync() > 0;
         }
     }
 }

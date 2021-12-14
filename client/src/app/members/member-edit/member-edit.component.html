@@ -1,6 +1,6 @@
 <div class="row" *ngIf="member">
   <div class="col-4">
-    <h1 *ngIf="member">{{member.username}}'s Profile</h1>
+    
   </div>
   <div class="col-8">
 
@@ -39,7 +39,7 @@
 
   <div class="col-8">
     <tabset class="member-tabset">
-      <tab heading='About {{member.knownAs}}'>
+      <tab heading='Edit Profile'>
         <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
           <h4 class="mt-4">Description</h4>
           <textarea class="form-control" [(ngModel)]="member.introduction" name="introduction" cols="85"

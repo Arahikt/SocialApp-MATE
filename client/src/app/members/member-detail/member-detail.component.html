@@ -5,6 +5,10 @@
                 class="card-img-top img-thumbnail rounded">
             <div class="card-body">
                 <div>
+                    <strong>Name:</strong>
+                    <p>{{member.knownAs}}</p>
+                </div>
+                <div>
                     <strong>Location:</strong>
                     <p>{{member.city}}, {{member.country}}</p>
                 </div>
@@ -15,7 +19,6 @@
                 <div>
                     <strong>Last Active:</strong>
                     <p>{{member.lastActive | date: "mediumDate" }}</p>
-                    <!-- {{timeAgo()}} -->
                 </div>
                 <div>
                     <strong>Member since:</strong>
@@ -24,9 +27,8 @@
             </div>
             <div class="card-footer">
                 <div class="btn-group d-flex">
-                    <button class="btn btn-primary btn-sm">Like</button>
-                    <button (click)="selectTab(3)" class="btn btn-success btn-sm">Message</button>
-                    <button class="btn btn-dark btn-sm">Dislike</button>
+                    <button (click)="addLike(member)" class="btn btn-primary btn-sm">Like</button>
+                    <button (click)="selectTab(2)" class="btn btn-success btn-sm">Message</button>
                 </div>
             </div>
         </div>
@@ -34,14 +36,12 @@
 
     <div class="col-8">
         <tabset class="member-tabset" #memberTabs>
-            <!-- <tab heading='About {{member.knownAs}}'> -->
-                <tab heading=' {{member.knownAs}}'s Profile  (selectTab)="onTabActivated($event)">
+                <tab heading='Profile'  (selectTab)="onTabActivated($event)">
                 <h4>Description</h4>
                 <p>{{member.introduction}}</p>
                 <h4>Looking for</h4>
                 <p>{{member.lookingFor}}</p>
-            </tab>
-            <tab heading='Interests' (selectTab)="onTabActivated($event)">
+               <h4 heading='Interests' (selectTab)="onTabActivated($event)"></h4>
                 <h4>Interests</h4>
                 <p>{{member.interests}}</p>
             </tab>

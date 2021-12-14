@@ -16,7 +16,7 @@
           <div class="msg-body">
             <div class="header">
               <small class="text-muted">
-                <span class="fa fa-clock-o">{{message.messageSent | date: "mediumDate" }}</span>
+                <span>{{message.messageSent | date: "mediumDate" }}</span>
                 <!-- unread -->
                 <span class="text-danger fa  fa-circle-o" *ngIf="!message.dateRead 
                                     && message.senderUsername !== username">

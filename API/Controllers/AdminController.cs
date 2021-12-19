@@ -34,14 +34,6 @@ namespace API.Controllers
             return Ok(users);
         }
         
-        [Authorize(Policy = "ModeratePhotoRole")]
-        [HttpGet("photos-to-moderate")]
-        public ActionResult GetPhotosForModeration()
-        {
-            return Ok("Invalid request. admin/moderator");
-        }
-
-
         [HttpPost("edit-roles/{username}")]
         public async Task<ActionResult> EditRoles(string username, [FromQuery] string roles)
         {

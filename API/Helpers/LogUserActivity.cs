@@ -16,7 +16,7 @@ namespace API.Helpers
             var resultContext = await next();
 
             if (!resultContext.HttpContext.User.Identity.IsAuthenticated) return;
-            // UnitofW == Unit of Work
+    
             var userId = resultContext.HttpContext.User.GetUserId();
             var UnitofW = resultContext.HttpContext.RequestServices.GetService<IUnitOfWork>();
             var user = await UnitofW.UserRepository.GetUserByIdAsync(userId);

@@ -57,7 +57,7 @@ namespace API.DTOs
 
         public async Task<IEnumerable<MessageDto>> GetMessageThread(string currentUsername, string recipientUsername)
         {
-            //getting conversation of users
+         
             var messages = await _context.Messages
             .Where(m => m.Recipient.UserName == currentUsername && m.RecipientDeleted==false
             && m.Sender.UserName == recipientUsername
@@ -68,10 +68,10 @@ namespace API.DTOs
             .ProjectTo<MessageDto>(_mapper.ConfigurationProvider)
             .ToListAsync();
 
-            //find out if unread message exists
+      
             var unreadMessages = messages.Where(m => m.DateRead == null && m.RecipientUsername == currentUsername).ToList();
 
-            //mark unread messages
+            
             if (unreadMessages.Any())
             {
                 foreach (var message in unreadMessages)

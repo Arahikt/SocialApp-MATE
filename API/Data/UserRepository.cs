@@ -28,17 +28,12 @@ namespace API.Data
             .Where(x => x.UserName == username)
             .ProjectTo<MemberDto>(_mapper.ConfigurationProvider)
             .SingleOrDefaultAsync();
-            // .Select(user => new MemberDto
-            // {
-            //     Id = user.Id,
-            //     Username = user.UserName
-            // }).SingleOrDefaultAsync();
+            
         }
 
         public async Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams)
         {
            var query =  _context.Users.AsQueryable();
-        //    .ProjectTo<MemberDto>(_mapper.ConfigurationProvider).AsNoTracking();
 
            query = query.Where(u => u.UserName != userParams.CurrentUsername);
            query = query.Where(u => u.Gender == userParams.Gender);
@@ -49,16 +44,13 @@ namespace API.Data
             query = userParams.OrderBy switch
             {
                 "created" => query.OrderByDescending( userParams=> userParams.Created),
-                //default
+                
                 _ => query.OrderByDescending(u =>u.LastActive)
             };
 
            return await PagedList<MemberDto>.CreateAsync(
                query.ProjectTo<MemberDto>(_mapper.ConfigurationProvider).AsNoTracking(), 
                userParams.PageNumber, userParams.PageSize);
-
-            //    return await PagedList<MemberDto>.CreateAsync(
-            //    query,userParams.PageNumber, userParams.PageSize);
         }
 
         public async Task<AppUser> GetUserByIdAsync(int id)

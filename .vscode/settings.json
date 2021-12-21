@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "API\\bin\\Release\\net6.0\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/3ee61577-f6fa-4f95-acdc-78bf923f6817/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/Social-app-remote"
+}

@@ -37,7 +37,7 @@ namespace API.Controllers
         [HttpPost("edit-roles/{username}")]
         public async Task<ActionResult> EditRoles(string username, [FromQuery] string roles)
         {
-            //querystring will have e.g  Member, Admin
+            
             var selectedRoles = roles.Split(",").ToArray();
             var user = await _userManager.FindByNameAsync(username);
             if (user == null) return NotFound("User does not exist.");

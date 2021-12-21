@@ -39,8 +39,7 @@ namespace API.Controllers
                 userParams.Gender = gender == "male" ? "female" : "male";
             var users = await _unitOfWork.UserRepository.GetMembersAsync(userParams);
             Response.AddPaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
-            // await _unitOfWork.UserRepository.GetUsersAsync();
-            // var usersToReturn = _mapper.Map<IEnumerable<MemberDto>>(users);
+         
 
             return Ok(users);
         }
@@ -49,7 +48,7 @@ namespace API.Controllers
         public async Task<ActionResult<MemberDto>> GetUser(string username)
         {
             return await _unitOfWork.UserRepository.GetMemberAsync(username);
-            // return _mapper.Map<MemberDto>(user);
+            
         }
 
         [HttpPut]
